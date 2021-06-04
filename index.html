@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/6ff1b4625b.js" crossorigin="anonymous"></script>
+
+    <script src="js/functions.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script> 
+    </script>
+    <title>Clases Materia I</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-xs-12 col-md-4">        
+                <label style="font-size: 25px;">Ver clase del día: </label>   
+            </div>
+            <div class="col-xs-12 col-md-8 seleccionar">
+                <select id="seleccionarClase" onchange="cambiarLinkVideo()" class="form-select form-control" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'> 
+                    <option value="https://www.youtube.com/embed/ERBB0eppOmc" title="Clase 1 (Fecha): Video en YouTube con PDF" data-pdf="https://drive.google.com/file/d/168sxzgL4bqaH15Mcm7nryQCOZN3boExQ/view" data-jamboard="#" selected>1- Fecha</option>
+                    <option value="https://drive.google.com/file/d/1KnucwxeTrGGtOkFiFW04GEZ2au9K_4Rg/preview" title="Clase 2 (Fecha): Video en Google Drive con Jamboard" data-pdf="#" data-jamboard="https://drive.google.com/file/d/170CtfDTqd5jEGt-KERhYaJNXR0OR8JHy/view">2- Fecha</option>
+                    <option value="https://www.youtube.com/embed/ERBB0eppOmc" title="Clase 3 (Fecha): Video en YouTube con PDF y Jamboard" data-pdf="https://drive.google.com/file/d/168sxzgL4bqaH15Mcm7nryQCOZN3boExQ/view" data-jamboard="https://drive.google.com/file/d/170CtfDTqd5jEGt-KERhYaJNXR0OR8JHy/view">3- Fecha</option>
+                    <option value="https://drive.google.com/file/d/1KnucwxeTrGGtOkFiFW04GEZ2au9K_4Rg/preview" title="Clase 4 (Fecha): Video en Google Drive sin PDF ni Jamboard" data-pdf="#" data-jamboard="#">4- Fecha</option>
+                    <option value="https://drive.google.com/file/d/IDdelVideo/preview" title="Clase 5 (Fecha): Video no subido, pero con PDF disponible" data-pdf="https://drive.google.com/file/d/168sxzgL4bqaH15Mcm7nryQCOZN3boExQ/view" data-jamboard="#" data-sinvideo>5- Fecha</option>
+                </select>
+            </div>
+        </div>
+          <!--Para que se me haga más facil agregar una clase
+             <option value="https://www.youtube.com/embed/IDdelVideo" title="Video en YouTube" data-pdf="#" data-jamboard="#">numClase- Fecha</option>
+
+             <option value="https://drive.google.com/file/d/IDdelVideo/preview" title="Video en Google Drive" data-pdf="#" data-jamboard="#">numClase- Fecha</option>
+          -->
+            
+        
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <h3 id="tituloClase">Clase 1 (Fecha): Video en YouTube con PDF</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="d-none d-md-block col-2">
+                <table style="height: 100%; width: 100%;">
+                    <tbody>
+                      <tr>
+                        <td class="align-middle">
+                                <a href="#" style="color: rgb(44, 44, 44);" class="linkAnterior" onclick="claseAnterior();">
+                                    <span class="h5"><i class="fas fa-arrow-alt-circle-left"></i> Clase Anterior</span><br>
+                                    <span class="claseAnterior">No hay clase anterior</span>
+                                </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>                 
+            </div>
+            <div class="col-xs-12 col-md-8" style="text-align: center;">
+                <iframe id="reproductorVideo" src="https://www.youtube.com/embed/ERBB0eppOmc"" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+                <span style="font-size: 13px;" >En caso de ver un error, leer la nota al final del sitio o <a class="linkDrive" href="https://www.youtube.com/watch?v=ERBB0eppOmc" target="_blank">haz click aquí para ver el vídeo en YouTube</a></span>
+            </div>
+            <div class="d-none d-md-block col-2">
+                <table style="height: 100%; width: 100%;">
+                    <tbody>
+                      <tr>
+                        <td class="align-middle">
+                            <a href="#" style="color: rgb(44, 44, 44);" class="linkSiguiente" onclick="siguienteClase();">
+                                <span class="h5">Clase Siguiente <i class="fas fa-arrow-alt-circle-right"></i></span>
+                                <span class="claseSiguiente">Martes 16/03 Práctico</span>
+                            </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>                      
+            </div>
+        </div>
+
+        <div class="row d-md-none">
+            <div class="col-6">
+                <a href="#" class="linkAnterior" onclick="claseAnterior();">
+                    <button type="button" class="btn btn-secondary" style="padding: 5px; width: 100%; height: 60px;">
+                        <i class="fas fa-arrow-alt-circle-left"></i> <span class="claseAnterior">No hay clase anterior</span>
+                    </button>
+                </a>
+            </div>
+            <div class="col-6">
+                <a href="#" class="linkSiguiente" onclick="siguienteClase();">
+                    <button type="button" class="btn btn-secondary" style="padding: 5px; width: 100%; height: 60px;">
+                        <span class="claseSiguiente">Martes 16/03 Práctico</span> <i class="fas fa-arrow-alt-circle-right"></i>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6" style="text-align: center;">
+                <h4>Recursos de la clase:</h4>
+            </div>
+            <div class="col-6 recursos">
+                <li id="pdfLi">
+                    <a id="pdfClase" class="btn btn-outline-primary" href="https://drive.google.com/file/d/168sxzgL4bqaH15Mcm7nryQCOZN3boExQ/view" role="button" target="_blank" style="width: 150px;">Ver PDF</a>
+                </li>
+                <li id="jamboardLi" style="display: none;">
+                    <a id="jamboard" class="btn btn-outline-info" href="#" role="button" target="_blank" style="width: 150px;">Ver Jamboard</a>
+                </li>
+                <li id="sinRecursos" style="display: none;">
+                    <span class="btn btn-outline-secondary" role="button">Recursos no disponibles</span>
+                </li>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <i><strong>Nota:</strong> Si por X motivo no te permite ver el video y te muestra un error <a class="linkDrive" href="https://www.youtube.com/watch?v=ERBB0eppOmc" target="_blank">haz click aquí para verlo en YouTube</a>.
+                <br>El problema se debe a que necesitas iniciar sesión en el navegador con tu cuenta @mi.unc.edu.ar, también puede deberse a problemas con el navegador cómo sucede al utilizar Microsoft Edge.</i>
+            </div>
+        </div>
+
+        <footer>
+            <div class="row">
+                <div class="col-12" style="text-align: center;"><a href="https://www.catalasjuin.com/famaf/" style="color: #000">www.catalasjuin.com</a></div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
